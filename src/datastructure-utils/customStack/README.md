@@ -72,3 +72,125 @@ console.log(stack.structure) # will log stack's structure
   - The **back stack** stores pages visited in reverse order.
   - The **forward stack** stores pages for redo navigation.
   - Clicking "back" pushes the current page onto the forward stack and pops the previous page from the back stack.
+
+# Custom Stack - Documentation
+
+## Overview
+
+A **stack** is a linear data structure that operates on a **last-in, first-out (LIFO)** principle. This means the last element added to the stack is the first one to be removed, like a stack of plates where you always take the top plate first.
+
+### Use Cases
+
+Stacks are particularly useful in scenarios such as:
+
+- **Undo/Redo Operations**: Maintaining a history of actions.
+- **Function Call Management**: Managing function calls in programming languages (call stack).
+- **Expression Evaluation**: Parsing expressions in compilers.
+- **Backtracking**: Implementing depth-first search (DFS) or navigating back in applications.
+
+---
+
+## Custom Stack
+
+This implementation of a stack uses an object to store elements and provides methods to manage the stack's behavior.
+
+---
+
+## Methods and Usage
+
+### `peek()`
+
+**Description**: Returns the top element of the stack without removing it.
+
+**Usage**:
+
+```javascript
+const stack = createStack();
+stack.push(1);
+stack.push(2);
+console.log(stack.peek()); // Output: 2
+```
+
+---
+
+### `push(item: any)`
+
+**Description**: Adds an item to the top of the stack.
+
+**Usage**:
+
+```javascript
+const stack = createStack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.size()); // Output: 3
+```
+
+---
+
+### `pop()`
+
+**Description**: Removes and returns the top element of the stack. If the stack is empty, it returns `undefined`.
+
+**Usage**:
+
+```javascript
+const stack = createStack();
+stack.push(1);
+stack.push(2);
+console.log(stack.pop()); // Output: 2
+console.log(stack.size()); // Output: 1
+```
+
+---
+
+### `size()`
+
+**Description**: Returns the number of elements in the stack.
+
+**Usage**:
+
+```javascript
+const stack = createStack();
+stack.push(1);
+stack.push(2);
+console.log(stack.size()); // Output: 2
+```
+
+---
+
+## Example Workflow
+
+```javascript
+const stack = createStack();
+
+// Adding elements
+stack.push('A');
+stack.push('B');
+stack.push('C');
+
+// Viewing the top element
+console.log(stack.peek()); // Output: 'C'
+
+// Removing the top element
+console.log(stack.pop()); // Output: 'C'
+
+// Checking the size of the stack
+console.log(stack.size()); // Output: 2
+
+// Viewing the stack after popping
+console.log(stack.peek()); // Output: 'B'
+```
+
+---
+
+## Characteristics of the Custom Stack
+
+- **Storage Mechanism**: Uses an object to store elements indexed by their position in the stack.
+- **Dynamic Resizing**: Automatically grows as new elements are added.
+- **Efficient Operations**:
+  - `push`, `pop`, and `peek` have constant time complexity \(O(1)\).
+  - `size` also has constant time complexity \(O(1)\).
+
+This implementation is straightforward and highly efficient for managing LIFO operations in JavaScript/TypeScript projects. It is well-suited for applications requiring stack-based logic.
